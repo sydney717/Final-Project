@@ -30,7 +30,7 @@ This app takes a picture with your device's camera and then displays color infor
 -->
 
 <head> 
-	 <title>Acetone & Hexanal Detection</title> 
+	 <title>Acetone Detection</title> 
 
 	<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
 
@@ -47,38 +47,42 @@ This app takes a picture with your device's camera and then displays color infor
 </head> 
 
 <body>
-  
-    <header class="w3-container w3-flat-turquoise">
-         <h1>Acetone & Hexanal Detection</h1></div>
-    </header>
-	
-    <div class="w3-container">	
-      <p>The presence of acetone and hexanal in exhaled breath can be a sign of various medical conditions. These chemicals in vapor form can be detected by colorimetric indicators. This app allows you to submit a photo of the colorimetric sensors to determine the presence of acetone and hexanal as well as the concentration. </p>
-      <p>THIS SHOULD NOT BE USED TO DIAGNOSE ANY MEDICAL CONDITION as it is still a prototype.</p>
+<div class="page" id="homepage">
+    <div id="header" class="w3-container w3-flat-turquoise">
+         <h1>Acetone Detection</h1>
     </div>
-    <a href="#infopage" class="w3-btn w3-flat-turquoise">Learn more?</a>
-  </div>
-
-    <p> </p>Press the "choose file" button to create or choose image file:<br>
+	
+    <div id="content" class="w3-container">	
+      <p>The presence of acetone in exhaled breath can be a sign of various medical conditions. These chemicals in vapor form can be detected by colorimetric indicators. This app allows you to submit a photo of the colorimetric sensors to determine the presence of acetone as well as the concentration. </p>
+      <p>THIS SHOULD NOT BE USED TO DIAGNOSE ANY MEDICAL CONDITION as it is still a prototype.</p>
+      <a href="#infopage" class="w3-btn w3-flat-turquoise">Learn more?</a>
+  
+   <p> </p>Press the "choose file" button to create or choose image file:<br>
         <input type="file" id="fileInput" STYLE="background-color: #4ee5e3;">
-	<br><br>
-   
-  </div>
-	<canvas id="myCanvas" width="500" height="667">
-	</canvas><br> <!-- creates canvas for user to input image --> 
+	 <br><br>
+	 <canvas id="myCanvas" width="500" height="667">
+	 </canvas><br> <!-- creates canvas for user to input image --> 
 
 	    
       <p>Touch the picture to see an output of your RGB and HSV values.</p> <!-- message above canvas -->
       <p id="messageDisplayArea">This area will be replaced by the RGB values once the image is tapped.</p> <!-- message above canvas -->
-	<p id="messageDisplayArea2">This area will be replaced by the HSV values once the image is tapped.</p> <!-- message above canvas -->
-	<p id="messageDisplayArea3">This area will be replaced by the color name once the image is tapped.</p> <!-- message above canvas -->
+	    <p id="messageDisplayArea2">This area will be replaced by the HSV values once the image is tapped.</p> <!-- message above canvas -->
+	    <p id="messageDisplayArea3">This area will be replaced by the color name once the image is tapped.</p> <!-- message above canvas -->
+</div>
 
-		  </div>
-<!--    <footer class="w3-bottom w3-container w3-flat-carrot">
-      <p>DIY Diagnostics</p>
-    </footer> -->
+<div class="page" id="infopage">
+    <div id="header" class="w3-container w3-flat-turquoise"> <!-- header for info page -->
+      <h1>More Information</h1>
+    </div>
+    
+    <div id="content" class="w3-container">
+      <p> Blah blah</p>
+      </div>
+</div>
+
 
 </body>
+
 
   <script>
   /* This script below initiates the canvas and puts the text on the canvas "myCanvas" */
@@ -165,15 +169,6 @@ function rgbToHsv(r, g, b) {
       reader.readAsDataURL(file);
     };
   </script>
-
- <div class="page" id="infopage">
-    <div id="header" class="w3-container w3-flat-turquoise"> <!-- header for info page -->
-      <h1>More Information</h1>
-    </div>
-    <div id="content" class="w3-container">
-      <p> Blah blah</p>
-    </div>
- </div>
 
 		
 
