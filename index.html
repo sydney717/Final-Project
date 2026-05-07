@@ -113,11 +113,11 @@ function rgbToHsv(r, g, b) {
 
 // this function takes the HSV values of the pixel and uses if statements to categorize a color   
  function getColorName(h, s, v) {
-      if (s < 20 || v < 50) return "No Acetone Present"; 
-      if (h >= 15 && h < 45) return "Approximately 1% Acetone Concentration Present";
-      if (h >= 45 && h <= 75) return "Approximately 10% Acetone Concentration Present"; 
-      if (h >= 75 && h <= 165) return "Pure or Near-Pure Acetone Present"; 
-      return "Unknown";
+      if (42 < h < 48 && 65 < s < 68 && 85 < v < 94) return "No Acetone Present"; 
+      if (33 < h < 44 && 34 < s < 57 && 95 < v < 97) return "Approximately 1% Acetone Concentration Present";
+      if (34 < h < 39 && 39 < s < 58 && 88 < v < 96) return "Approximately 10% Acetone Concentration Present"; 
+      if (26 < h < 32 && 35 < s < 41 && 90 < v < 95) return "Pure or Near-Pure Acetone Present"; 
+      return "Invalid Sample";
     }
     
     canvas.onclick = function(event) { // this creates an event that happens when a pixel on the canvas is clicked.
@@ -131,7 +131,7 @@ function rgbToHsv(r, g, b) {
    
       message.innerText = "HSV values= " + Math.round(h) + ", " + Math.round(s) + ", " + Math.round(v);
 	message2.innerText = "RGB values= " + Math.round(pixel[0]) + ", " + Math.round(pixel[1]) + ", " + Math.round(pixel[2]);
-	    message3.innerText = "Color Name= " + colorName;
+	    message3.innerText = "Acetone?: " + colorName;
     }; 
 // color that is tapped and detected is shown below the selected photo
    
