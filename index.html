@@ -113,10 +113,10 @@ function rgbToHsv(r, g, b) {
 
 // this function takes the HSV values of the pixel and uses if statements to categorize a color   
  function getColorName(h, s, v) {
-      if (45 <= h <= 47) return "No Acetone Present"; 
-      if (39 <= h <= 44) return "Approximately 1% Acetone Concentration Present";
-      if (31 <= h <= 38) return "Approximately 10% Acetone Concentration Present"; 
-      if (24 <= h <= 30) return "Pure or Near-Pure Acetone Present"; 
+      if (45 <= h || h <= 47) return "No Acetone Present"; 
+      if (39 <= h || h <= 44) return "Approximately 1% Acetone Concentration Present";
+      if (31 <= h || h <= 38) return "Approximately 10% Acetone Concentration Present"; 
+      if (h >= 24 || h <= 30) return "Pure or Near-Pure Acetone Present"; 
       return "Invalid Sample";
     }
     
