@@ -113,14 +113,11 @@ function rgbToHsv(r, g, b) {
 
 // this function takes the HSV values of the pixel and uses if statements to categorize a color   
  function getColorName(h, s, v) {
-      if (s < 20 || v < 50) return "Unclear/Neutral"; 
-      if (h >= 15 && h < 45) return "Orange";
-      if (h >= 45 && h <= 75) return "Yellow"; 
-      if (h >= 75 && h <= 165) return "Green"; 
-      if (h >= 165 && h <= 255) return "Blue";
-      if (h >= 255 && h <= 345) return "Purple/Pink"; 
-      if (h >= 345 && h <= 360 || h >= 0 && h <= 15) return "Red"; 
-      return "Other Color";
+      if (s < 20 || v < 50) return "No Acetone Present"; 
+      if (h >= 15 && h < 45) return "Approximately 1% Acetone Concentration Present";
+      if (h >= 45 && h <= 75) return "Approximately 10% Acetone Concentration Present"; 
+      if (h >= 75 && h <= 165) return "Pure or Near-Pure Acetone Present"; 
+      return "Unknown";
     }
     
     canvas.onclick = function(event) { // this creates an event that happens when a pixel on the canvas is clicked.
