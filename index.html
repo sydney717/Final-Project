@@ -26,7 +26,7 @@
 This app takes a picture with your device's camera and then displays color information when a user touches (or clicks) on the image.
  
   Known Issues:
-  None as of now
+  ocassional false negatives if the H value is exactly equivalent to one of the parameters even though all of the parameters are inclusive
 -->
 
 <head> 
@@ -49,25 +49,25 @@ This app takes a picture with your device's camera and then displays color infor
 <body>
 <div class="page" id="homepage">
     <div id="header" class="w3-container w3-flat-turquoise">
-         <h1>Acetone Detection</h1>
+         <h1>Acetone Detection</h1> <!-- header of the webpage -->
     </div>
 	
-    <div id="content" class="w3-container">	
+    <div id="content" class="w3-container">	<!-- brief information section -->
       <p>The presence of acetone in exhaled breath can be a sign of various medical conditions. These chemicals in vapor form can be detected by colorimetric indicators. This app allows you to submit a photo of the colorimetric sensors to determine the presence of acetone as well as the concentration. </p>
-      <p>THIS SHOULD NOT BE USED TO DIAGNOSE ANY MEDICAL CONDITION as it is still a prototype.</p>
-      <a href="https://drive.google.com/file/d/1joeDdbLMXBgPgi90kW5y-96yfg11LY5e/view" class="w3-btn w3-flat-turquoise">Learn more?</a>
+      <p>THIS SHOULD NOT BE USED TO DIAGNOSE ANY MEDICAL CONDITION as it is still a prototype.</p> <!-- disclaimer -->
+      <a href="https://drive.google.com/file/d/1joeDdbLMXBgPgi90kW5y-96yfg11LY5e/view" class="w3-btn w3-flat-turquoise">Learn more?</a> <!-- link to my project board that forms the basis of the information in the app -->
   
    <p> </p>Press the "choose file" button to create or choose image file:<br>
-        <input type="file" id="fileInput" STYLE="background-color: #4ee5e3;">
+        <input type="file" id="fileInput" STYLE="background-color: #4ee5e3;"> <!-- turquoise choose file button -->
 	 <br><br>
 	 <canvas id="myCanvas" width="500" height="667">
 	 </canvas><br> <!-- creates canvas for user to input image --> 
 
 	    
-      <p>Touch the picture to see an output of your RGB values.</p> <!-- message above canvas -->
-      <p id="messageDisplayArea">This area will be replaced by the RGB values once the image is tapped.</p> <!-- message above canvas -->
-	    <p id="messageDisplayArea2">This area will be replaced by the HSV values once the image is tapped.</p> <!-- message above canvas -->
-	    <p id="messageDisplayArea3">This area will be replaced by the test results once the image is tapped.</p> <!-- message above canvas -->
+      <p>Touch the picture to see an output of your RGB values.</p> <!-- message below canvas -->
+      <p id="messageDisplayArea">This area will be replaced by the RGB values once the image is tapped.</p> <!-- message below canvas that will be replaced with the RGB values -->
+	    <p id="messageDisplayArea2">This area will be replaced by the HSV values once the image is tapped.</p> <!-- message below canvas that will be replaced with the HSV values -->
+	    <p id="messageDisplayArea3">This area will be replaced by the test results once the image is tapped.</p> <!-- message below canvas that will be replaced by the test results -->
 </div>
 
 
@@ -113,14 +113,10 @@ function rgbToHsv(r, g, b) {
 
 // this function takes the HSV values of the pixel and uses if statements to categorize a color   
  function getColorName(h, s, v) {
-      if (45 < h && h < 47) return "No Acetone Present"; 
-      if (45 == h || h == 47) return "No Acetone Present"; 
-      if (39 < h && h < 44) return "Approximately 1% Acetone Concentration Present";
-      if (39 == h || h == 44) return "Approximately 1% Acetone Concentration Present";
-      if (31 < h && h < 38) return "Approximately 10% Acetone Concentration Present"; 
-      if (31 == h || h == 38) return "Approximately 10% Acetone Concentration Present"; 
-      if (h > 24 && h < 30) return "Pure or Near-Pure Acetone Present"; 
-      if (h == 24 || h == 30) return "Pure or Near-Pure Acetone Present";
+      if (45 <= h && h <= 47) return "No Acetone Present"; 
+      if (39 <= h && h <= 44) return "Approximately 1% Acetone Concentration Present";
+      if (31 <= h && h <= 38) return "Approximately 10% Acetone Concentration Present";  
+      if (h >= 24 && h <= 30) return "Pure or Near-Pure Acetone Present"; 
       else return "Invalid Sample";
     }
     
