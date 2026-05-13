@@ -75,6 +75,7 @@ This app takes a picture with your device's camera and then displays color infor
 
 
   <script>
+    
   /* This script below initiates the canvas and puts the text on the canvas "myCanvas" */
     		const canvas = document.getElementById('myCanvas');
     		const ctx = canvas.getContext('2d');
@@ -133,6 +134,8 @@ function rgbToHsv(r, g, b) {
 	message2.innerText = "RGB values= " + Math.round(pixel[0]) + ", " + Math.round(pixel[1]) + ", " + Math.round(pixel[2]); //RGB values of the pixel that is tapped and detected is shown below the selected photo
 	    message3.innerText = "Acetone?: " + colorName; //acetone test results from the H value
     }; 
+
+  
 // color that is tapped and detected is shown below the selected photo
    
     fileInput.onchange = function(e) {
